@@ -29,10 +29,10 @@
   <span class="status" id="status"></span>
 </div>
 
-<iframe id="viewer" src="/Slides/slide1.html" title="Slides"></iframe>
+<iframe id="viewer" src="slide1.html" title="Slides"></iframe>
 
 <script>
-  const slides = Array.from({ length: 14 }, (_, i) => `/Slides/slide${i+1}.html`);
+  const slides = Array.from({ length: 14 }, (_, i) => `slide${i+1}.html`);
   let current = 0;
 
   const iframe = document.getElementById('viewer');
@@ -75,3 +75,4 @@
 </script>
 </body>
 </html>
+
