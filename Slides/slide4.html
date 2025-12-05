@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&amp;family=Open+Sans:wght@300;400;600&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    body { margin: 0; padding: 0; background-color: #f3f4f6; font-family: 'Open Sans', sans-serif; }
+    .slide-container { width: 1280px; min-height: 720px; background-color: #ffffff; position: relative; display: flex; flex-direction: column; overflow: hidden; }
+    .bg-brand-blue { background-color: #212B5C; }
+    .text-brand-blue { color: #212B5C; }
+    .bg-brand-orange { background-color: #FDB913; }
+    .text-brand-orange { color: #FDB913; }
+    .border-brand-orange { border-color: #FDB913; }
+    .border-brand-blue { border-color: #212B5C; }
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .font-mono { font-family: 'Fira Code', monospace; }
+    .flow-card { transition: all 0.3s ease; }
+    .flow-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1); }
+    @keyframes subtle-pulse { 0% { box-shadow: 0 0 0 0 rgba(33,43,92,0.1);} 70% { box-shadow: 0 0 0 10px rgba(33,43,92,0);} 100% { box-shadow: 0 0 0 0 rgba(33,43,92,0);} }
+    .pulse-effect { animation: subtle-pulse 2s infinite; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+    <!-- Header Section -->
+    <div class="w-full px-16 pt-12 pb-4 bg-white z-20">
+        <div class="flex items-center mb-2">
+            <div class="h-1 w-12 bg-brand-orange mr-4"></div>
+            <p class="font-montserrat font-bold text-xs uppercase tracking-widest text-gray-400">
+                Fundamentos de Big Data
+            </p>
+        </div>
+        <h1 class="font-montserrat font-extrabold text-5xl text-brand-blue">
+            Arquitetura Simples do Projeto
+        </h1>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gray-50 z-0 transform skew-x-12 translate-x-24"></div>
+    <div class="absolute bottom-10 left-10 w-32 h-32 bg-brand-orange opacity-5 rounded-full blur-2xl z-0"></div>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 px-16 py-4 relative z-10 flex flex-col justify-center">
+        <!-- Process Flow Diagram -->
+        <div class="flex items-stretch justify-between gap-4 mb-10 w-full max-w-6xl mx-auto">
+            <!-- Step 1: Ingestion -->
+            <div class="w-1/3 flex flex-col">
+                <div class="flow-card bg-white border-t-4 border-brand-orange rounded-lg p-6 shadow-md h-full flex flex-col relative">
+                    <div class="absolute -top-3 -left-3 w-8 h-8 bg-brand-orange rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">1</div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center text-brand-orange text-xl mr-4">
+                            <i class="fa-solid fa-file-csv"></i>
+                        </div>
+                        <h3 class="font-montserrat font-bold text-lg text-gray-800">Ingestão</h3>
+                    </div>
+                    <div class="flex-grow">
+                        <p class="text-gray-600 text-sm mb-2">Leitura do arquivo pré-processado.</p>
+                        <div class="bg-gray-50 rounded px-3 py-2 border border-gray-100">
+                            <code class="text-xs text-gray-500 font-mono block">data_processed/</code>
+                            <code class="text-xs text-gray-700 font-mono font-bold">dataset_final_simple.csv</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connector -->
+            <div class="flex items-center justify-center w-16 text-gray-300">
+                <i class="fa-solid fa-arrow-right text-2xl"></i>
+            </div>
+
+            <!-- Step 2: App Layer (Central Hub) -->
+            <div class="w-1/3 flex flex-col">
+                <div class="flow-card bg-white border-t-4 border-brand-blue rounded-lg p-6 shadow-lg h-full flex flex-col relative pulse-effect ring-1 ring-blue-50">
+                    <div class="absolute -top-3 -left-3 w-8 h-8 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">2</div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-brand-blue text-xl mr-4">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3 class="font-montserrat font-bold text-lg text-gray-800">Camada de App</h3>
+                    </div>
+                    <div class="flex-grow space-y-2">
+                        <div class="flex items-center text-sm text-gray-700">
+                            <i class="fa-brands fa-python text-brand-blue mr-2 w-5"></i>
+                            <span><strong>Streamlit</strong> (App/Frontend)</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-700">
+                            <i class="fa-solid fa-chart-column text-brand-orange mr-2 w-5"></i>
+                            <span><strong>Plotly</strong> (Visualização)</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-700">
+                            <i class="fa-solid fa-table text-gray-500 mr-2 w-5"></i>
+                            <span><strong>Pandas</strong> (Manipulação)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connector -->
+            <div class="flex items-center justify-center w-16 text-gray-300">
+                <i class="fa-solid fa-arrow-right text-2xl"></i>
+            </div>
+
+            <!-- Step 3: Output -->
+            <div class="w-1/3 flex flex-col">
+                <div class="flow-card bg-white border-t-4 border-brand-orange rounded-lg p-6 shadow-md h-full flex flex-col relative">
+                    <div class="absolute -top-3 -left-3 w-8 h-8 bg-brand-orange rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">3</div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center text-brand-orange text-xl mr-4">
+                            <i class="fa-solid fa-laptop"></i>
+                        </div>
+                        <h3 class="font-montserrat font-bold text-lg text-gray-800">Saída</h3>
+                    </div>
+                    <div class="flex-grow">
+                        <p class="text-gray-600 text-sm mb-2">Dashboard interativo renderizado no navegador.</p>
+                        <ul class="text-xs text-gray-500 list-disc list-inside mt-2 space-y-1">
+                            <li>Filtros dinâmicos (quando aplicável)</li>
+                            <li>Gráficos responsivos</li>
+                            <li>Navegação local</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Info Section -->
+        <div class="grid grid-cols-3 gap-8 max-w-6xl mx-auto w-full">
+            <!-- Execution Box -->
+            <div class="col-span-2 bg-gray-800 rounded-lg p-4 shadow-inner flex items-center">
+                <div class="text-brand-orange mr-4 text-lg">
+                    <i class="fa-solid fa-terminal"></i>
+                </div>
+                <div class="w-full">
+                    <p class="text-gray-400 text-xs font-bold uppercase mb-1">Comando de Execução Local</p>
+                    <p class="font-mono text-green-400 text-sm">streamlit run dashboard/app.py <span class="text-gray-500"># sem Docker</span></p>
+                </div>
+            </div>
+            <!-- Note Box -->
+            <div class="col-span-1 bg-blue-50 rounded-lg p-4 border border-blue-100 flex items-start">
+                <div class="text-brand-blue mr-3 mt-1">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <div>
+                    <p class="text-brand-blue text-xs font-bold uppercase mb-1">Escopo do Tema 5</p>
+                    <p class="text-gray-600 text-xs leading-snug">
+                        Pipeline ETL prévio está fora do escopo; o foco é visualização e exploração no Streamlit.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="absolute bottom-0 left-0 w-full h-16 flex items-center justify-between px-16 border-t border-gray-200 bg-white/90 z-20">
+        <p class="font-montserrat text-xs font-bold text-gray-400 tracking-wider">DASHBOARD DE VENDAS OLIST</p>
+        <div class="flex items-center space-x-2">
+            <div class="h-1.5 w-1.5 rounded-full bg-brand-blue"></div>
+            <p class="font-montserrat text-xs font-bold text-brand-blue">SLIDE 04</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&amp;family=Open+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+<style>
+    body { margin: 0; padding: 0; background-color: #f3f4f6; font-family: 'Open Sans', sans-serif; }
+    .slide-container { width: 1280px; min-height: 720px; background-color: #ffffff; position: relative; display: flex; flex-direction: column; overflow: hidden; }
+    .bg-brand-blue { background-color: #212B5C; }
+    .text-brand-blue { color: #212B5C; }
+    .bg-brand-orange { background-color: #FDB913; }
+    .text-brand-orange { color: #FDB913; }
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .info-card { border-left-width: 4px; transition: all 0.3s ease; }
+    .info-card:hover { transform: translateX(5px); background-color: #f9fafb; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+    <!-- Header Section -->
+    <div class="w-full px-16 pt-12 pb-6 bg-white z-20">
+        <div class="flex items-center mb-2">
+            <div class="h-1 w-12 bg-brand-orange mr-4"></div>
+            <p class="font-montserrat font-bold text-xs uppercase tracking-widest text-gray-400">Fundamentos de Big Data</p>
+        </div>
+        <h1 class="font-montserrat font-extrabold text-5xl text-brand-blue">Status dos Pedidos</h1>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="absolute top-20 right-0 w-64 h-full bg-gray-50 z-0 transform skew-x-6 translate-x-20"></div>
+    <div class="absolute bottom-10 left-10 w-40 h-40 bg-brand-orange opacity-5 rounded-full blur-2xl z-0"></div>
+
+    <!-- Main Content -->
+    <div class="flex-1 px-16 pb-12 relative z-10 flex gap-10">
+        <!-- Left Column: Chart -->
+        <div class="w-2/3 flex flex-col">
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 h-full flex flex-col">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h3 class="font-montserrat font-bold text-xl text-gray-800">Distribuição por Status</h3>
+                        <p class="text-sm text-gray-500">Top 3 + Outros (para limpar a visualização)</p>
+                    </div>
+                    <div class="flex items-center gap-3 text-xs text-gray-500">
+                        <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-brand-blue mr-1"></span>Entregue</span>
+                        <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-brand-orange mr-1"></span>Shipped</span>
+                        <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-red-500 mr-1"></span>Cancelado</span>
+                        <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-gray-400 mr-1"></span>Outros</span>
+                    </div>
+                </div>
+                <div class="flex-1 relative w-full min-h-0">
+                    <canvas id="statusChart"></canvas>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-100 flex items-start gap-3">
+                    <div class="bg-blue-50 p-2 rounded text-brand-blue">
+                        <i class="fa-solid fa-filter"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-700 font-bold font-montserrat">Decisão de Agrupamento</p>
+                        <p class="text-xs text-gray-600 mt-1">
+                            Status com baixa incidência (<em>invoiced</em>, <em>processing</em>, <em>approved</em>, <em>unavailable</em>, etc.) foram somados em <strong>“Outros”</strong> (&lt; 2%) para facilitar a leitura.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Insights -->
+        <div class="w-1/3 flex flex-col gap-6 justify-center">
+            <div class="info-card bg-white p-6 rounded-lg shadow-sm border-brand-blue">
+                <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-600 mr-3">
+                        <i class="fa-solid fa-check-double"></i>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-lg text-gray-800">Taxa de Sucesso</h4>
+                </div>
+                <div class="flex items-baseline gap-2 mb-2">
+                    <span class="text-4xl font-extrabold text-brand-blue">~97%</span>
+                    <span class="text-sm text-gray-500">dos pedidos</span>
+                </div>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    A grande maioria chega a <strong>delivered</strong>, evidenciando operação logística estável.
+                </p>
+            </div>
+
+            <div class="info-card bg-white p-6 rounded-lg shadow-sm border-red-400 border-l-4">
+                <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-500 mr-3">
+                        <i class="fa-solid fa-ban"></i>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-lg text-gray-800">Cancelamentos</h4>
+                </div>
+                <p class="text-sm text-gray-600 leading-relaxed mb-2">
+                    Cerca de <strong>0,6%</strong> dos pedidos são cancelados.
+                </p>
+                <div class="w-full bg-gray-200 rounded-full h-1.5 mb-1">
+                    <div class="bg-red-500 h-1.5 rounded-full" style="width: 0.6%"></div>
+                </div>
+                <p class="text-xs text-gray-400">Baixa representatividade no gráfico geral.</p>
+            </div>
+
+            <div class="info-card bg-white p-6 rounded-lg shadow-sm border-brand-orange">
+                <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-brand-orange mr-3">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h4 class="font-montserrat font-bold text-lg text-gray-800">Em Trânsito</h4>
+                </div>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    <strong>shipped</strong> representa o fluxo ativo; monitorar essa fila ajuda a prever entregas e SLAs.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="absolute bottom-0 left-0 w-full h-16 flex items-center justify-between px-16 border-t border-gray-200 bg-white/90 z-20">
+        <p class="font-montserrat text-xs font-bold text-gray-400 tracking-wider">DASHBOARD DE VENDAS OLIST</p>
+        <div class="flex items-center space-x-2">
+            <div class="h-1.5 w-1.5 rounded-full bg-brand-blue"></div>
+            <p class="font-montserrat text-xs font-bold text-brand-blue">SLIDE 09</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const ctx = document.getElementById('statusChart').getContext('2d');
+
+    // Dados conforme distribuição observada: delivered, shipped, canceled, outros
+    const dataValues = [96478, 1107, 625, 1231];
+    const total = dataValues.reduce((a, b) => a + b, 0);
+    const percentages = dataValues.map(val => ((val / total) * 100).toFixed(1) + '%');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Entregue (delivered)', 'Enviado (shipped)', 'Cancelado', 'Outros'],
+            datasets: [{
+                label: 'Quantidade de Pedidos',
+                data: dataValues,
+                backgroundColor: ['#212B5C', '#FDB913', '#EF4444', '#9CA3AF'],
+                borderRadius: 4,
+                barPercentage: 0.6,
+                categoryPercentage: 0.8
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: 'rgba(33, 43, 92, 0.9)',
+                    titleFont: { family: 'Montserrat', size: 14 },
+                    bodyFont: { family: 'Open Sans', size: 12 },
+                    padding: 12,
+                    callbacks: {
+                        label: function(context) {
+                            const raw = context.raw;
+                            const percentage = percentages[context.dataIndex];
+                            return `${new Intl.NumberFormat('pt-BR').format(raw)} pedidos (${percentage})`;
+                        }
+                    }
+                },
+                datalabels: {
+                    anchor: 'end',
+                    align: 'end',
+                    color: '#6B7280',
+                    font: { weight: 'bold', family: 'Open Sans' },
+                    formatter: function(value) {
+                        return new Intl.NumberFormat('pt-BR').format(value);
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: { color: '#f3f4f6', borderDash: [4, 4] },
+                    ticks: { font: { family: 'Open Sans' }, color: '#9CA3AF' }
+                },
+                y: {
+                    grid: { display: false },
+                    ticks: { font: { family: 'Montserrat', weight: '600', size: 12 }, color: '#4B5563' }
+                }
+            }
+        },
+        plugins: [ChartDataLabels]
+    });
+</script>
+</body>
+</html>

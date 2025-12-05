@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&amp;family=Open+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    body { margin: 0; padding: 0; background-color: #f3f4f6; font-family: 'Open Sans', sans-serif; }
+    .slide-container { width: 1280px; min-height: 720px; background: #fff; position: relative; display: flex; flex-direction: column; overflow: hidden; }
+    .bg-brand-blue { background-color: #212B5C; }
+    .text-brand-blue { color: #212B5C; }
+    .bg-brand-orange { background-color: #FDB913; }
+    .text-brand-orange { color: #FDB913; }
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .insight-card { border-left-width: 4px; transition: transform 0.2s; }
+    .insight-card:hover { transform: translateX(5px); }
+    .chart-wrapper { position: relative; height: 400px; width: 100%; }
+</style>
+</head>
+<body>
+<div class="slide-container">
+    <!-- Header Section -->
+    <div class="w-full px-16 pt-12 pb-6 bg-white z-20">
+        <div class="flex items-center mb-2">
+            <div class="h-1 w-12 bg-brand-orange mr-4"></div>
+            <p class="font-montserrat font-bold text-xs uppercase tracking-widest text-gray-400">Fundamentos de Big Data</p>
+        </div>
+        <h1 class="font-montserrat font-extrabold text-5xl text-brand-blue">Comparação por Método de Pagamento</h1>
+    </div>
+
+    <!-- Background Decoration -->
+    <div class="absolute top-0 right-0 w-1/4 h-full bg-gray-50 z-0"></div>
+    <div class="absolute bottom-10 right-10 w-48 h-48 bg-brand-blue opacity-5 rounded-full blur-3xl z-0"></div>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 px-16 py-4 relative z-10 flex items-stretch gap-12">
+        <!-- Left Column: Chart -->
+        <div class="w-8/12 flex flex-col">
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 flex-1 flex flex-col">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-montserrat font-bold text-lg text-gray-700">Volume de Pedidos vs. Receita Total</h3>
+                    <div class="flex items-center space-x-4 text-xs">
+                        <div class="flex items-center"><span class="w-3 h-3 bg-brand-orange rounded-sm mr-2"></span><span class="text-gray-500">Quantidade (Barras)</span></div>
+                        <div class="flex items-center"><span class="w-3 h-1 bg-brand-blue mr-2"></span><span class="text-gray-500">Receita (Linha)</span></div>
+                    </div>
+                </div>
+                <div class="chart-wrapper flex-1">
+                    <canvas id="paymentChart"></canvas>
+                </div>
+                <div class="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-100 flex items-start gap-3">
+                    <i class="fa-solid fa-lightbulb text-brand-orange mt-1"></i>
+                    <p class="text-sm text-brand-blue">
+                        <strong>Decisão Técnica:</strong> Gráfico combinado para correlacionar alto volume com retorno financeiro (ticket médio) por método.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Insights -->
+        <div class="w-4/12 flex flex-col justify-center space-y-6">
+            <div class="mb-2">
+                <h3 class="font-montserrat font-bold text-xl text-brand-blue mb-1">Principais Insights</h3>
+                <p class="text-sm text-gray-400 uppercase tracking-wide font-semibold">Baseado em payment_type</p>
+            </div>
+
+            <div class="insight-card bg-white p-5 rounded-lg shadow-sm border-brand-blue">
+                <div class="flex items-center mb-2 text-brand-blue">
+                    <i class="fa-solid fa-credit-card mr-3 text-xl"></i>
+                    <h4 class="font-bold font-montserrat">Dominância do Crédito</h4>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    <strong>credit_card</strong> concentra a maior parte do volume e da receita (≈70k pedidos), refletindo preferência por parcelamento.
+                </p>
+            </div>
+
+            <div class="insight-card bg-white p-5 rounded-lg shadow-sm border-brand-orange">
+                <div class="flex items-center mb-2 text-brand-orange">
+                    <i class="fa-solid fa-barcode mr-3 text-xl"></i>
+                    <h4 class="font-bold font-montserrat">Relevância do Boleto</h4>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    <strong>boleto</strong> é o segundo método, importante para clientes que evitam crédito online ou estão desbancarizados.
+                </p>
+            </div>
+
+            <div class="insight-card bg-white p-5 rounded-lg shadow-sm border-gray-300">
+                <div class="flex items-center mb-2 text-gray-600">
+                    <i class="fa-solid fa-ticket mr-3 text-xl"></i>
+                    <h4 class="font-bold font-montserrat">Voucher &amp; Débito</h4>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    <strong>voucher</strong> e <strong>debit_card</strong> têm baixa participação; costumam ter ticket médio menor e uso pontual.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="absolute bottom-0 left-0 w-full h-16 flex items-center justify-between px-16 border-t border-gray-200 bg-white/90 z-20">
+        <p class="font-montserrat text-xs font-bold text-gray-400 tracking-wider">DASHBOARD DE VENDAS OLIST</p>
+        <div class="flex items-center space-x-2">
+            <div class="h-1.5 w-1.5 rounded-full bg-brand-blue"></div>
+            <p class="font-montserrat text-xs font-bold text-brand-blue">SLIDE 07</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Dados aproximados com base na distribuição vista no dashboard
+    const ctx = document.getElementById('paymentChart').getContext('2d');
+
+    const labels = [
+        'credit_card',
+        'boleto',
+        'credit_card,voucher',
+        'debit_card',
+        'voucher',
+        'credit_card,debit_card',
+        'not_defined'
+    ];
+
+    const qtyData = [73000, 20000, 5000, 2500, 1500, 800, 200];          // volume
+    const revData = [13000000, 3000000, 800000, 400000, 300000, 200000, 50000]; // receita
+
+    const paymentData = {
+        labels: labels,
+        datasets: [
+            {
+                label: 'Receita (R$)',
+                data: revData,
+                type: 'line',
+                borderColor: '#212B5C',
+                backgroundColor: '#212B5C',
+                borderWidth: 3,
+                pointBackgroundColor: '#fff',
+                pointBorderColor: '#212B5C',
+                pointRadius: 5,
+                pointHoverRadius: 7,
+                yAxisID: 'y1',
+                tension: 0.3
+            },
+            {
+                label: 'Qtd. Pedidos',
+                data: qtyData,
+                type: 'bar',
+                backgroundColor: '#FDB913',
+                hoverBackgroundColor: '#E0A00E',
+                borderRadius: 4,
+                barPercentage: 0.6,
+                yAxisID: 'y',
+                order: 2
+            }
+        ]
+    };
+
+    const chartConfig = {
+        type: 'bar',
+        data: paymentData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: 'rgba(33, 43, 92, 0.9)',
+                    titleFont: { family: 'Montserrat', size: 13 },
+                    bodyFont: { family: 'Open Sans', size: 12 },
+                    padding: 10,
+                    cornerRadius: 4,
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) { label += ': '; }
+                            if (context.dataset.type === 'line') {
+                                label += new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(context.raw);
+                            } else {
+                                label += new Intl.NumberFormat('pt-BR').format(context.raw);
+                            }
+                            return label;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: { display: false },
+                    ticks: { font: { family: 'Open Sans', size: 12 }, color: '#6B7280' }
+                },
+                y: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    grid: { borderDash: [5, 5], color: '#f3f4f6' },
+                    title: { display: true, text: 'Qtd. Pedidos', font: { family: 'Montserrat', size: 10, weight: 'bold' }, color: '#FDB913' },
+                    ticks: { font: { family: 'Open Sans', size: 10 }, color: '#9CA3AF' }
+                },
+                y1: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    grid: { drawOnChartArea: false },
+                    title: { display: true, text: 'Receita (R$)', font: { family: 'Montserrat', size: 10, weight: 'bold' }, color: '#212B5C' },
+                    ticks: {
+                        callback: function(value) { return 'R$ ' + (value / 1000000).toFixed(1) + 'M'; },
+                        font: { family: 'Open Sans', size: 10 },
+                        color: '#9CA3AF'
+                    }
+                }
+            }
+        }
+    };
+
+    new Chart(ctx, chartConfig);
+</script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&amp;family=Open+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    body { 
+        margin: 0; 
+        padding: 0; 
+        background-color: #f3f4f6; 
+        font-family: 'Open Sans', sans-serif;
+    }
+    .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background-color: #ffffff;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    /* Olist Inspired Colors */
+    .bg-brand-blue { background-color: #212B5C; }
+    .text-brand-blue { color: #212B5C; }
+    .bg-brand-orange { background-color: #FDB913; }
+    .text-brand-orange { color: #FDB913; }
+    .border-brand-orange { border-color: #FDB913; }
+    
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    
+    /* Custom List Styling */
+    .feature-card {
+        transition: transform 0.2s;
+    }
+    .feature-card:hover {
+        transform: translateY(-2px);
+    }
+</style>
+</head>
+<body>
+<div class="slide-container">
+    <!-- Header Section -->
+    <div class="w-full px-16 pt-12 pb-6 bg-white z-20">
+        <div class="flex items-center mb-2">
+            <div class="h-1 w-12 bg-brand-orange mr-4"></div>
+            <p class="font-montserrat font-bold text-xs uppercase tracking-widest text-gray-400">
+                Fundamentos de Big Data
+            </p>
+        </div>
+        <h1 class="font-montserrat font-extrabold text-5xl text-brand-blue">
+            Objetivo do Projeto
+        </h1>
+    </div>
+
+    <!-- Background Decoration -->
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-gray-50 z-0"></div>
+    <div class="absolute bottom-0 right-0 w-64 h-64 bg-brand-orange opacity-5 rounded-full blur-3xl z-0 translate-x-1/3 translate-y-1/3"></div>
+
+    <!-- Main Content Area (2 Columns) -->
+    <div class="flex-1 px-16 pt-4 pb-12 relative z-10 flex items-center">
+        <div class="grid grid-cols-2 gap-12 w-full h-full">
+            <!-- Column 1 -->
+            <div class="space-y-8 flex flex-col justify-center">
+                <!-- Item 1 -->
+                <div class="feature-card bg-white p-6 rounded-lg shadow-sm border-l-4 border-brand-blue">
+                    <div class="flex items-start mb-3">
+                        <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-brand-blue mr-4 flex-shrink-0">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-montserrat font-bold text-xl text-gray-800 mb-2">Dashboard Interativo</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Construir um dashboard em <strong>Streamlit</strong> para visualização dinâmica e exploração dos dados de vendas da Olist.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="feature-card bg-white p-6 rounded-lg shadow-sm border-l-4 border-brand-orange">
+                    <div class="flex items-start mb-3">
+                        <div class="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center text-brand-orange mr-4 flex-shrink-0">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-montserrat font-bold text-xl text-gray-800 mb-2">Foco em Métricas-Chave</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Analisar indicadores essenciais: <strong>faturamento total</strong>, volume de pedidos e satisfação (reviews).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="space-y-8 flex flex-col justify-center">
+                <!-- Item 3 -->
+                <div class="feature-card bg-white p-6 rounded-lg shadow-sm border-l-4 border-gray-300 hover:border-brand-blue transition-colors">
+                    <div class="flex items-start mb-3">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 mr-4 flex-shrink-0">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-montserrat font-bold text-xl text-gray-800 mb-2">Comparativos &amp; Evolução</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Comparar desempenho entre <strong>métodos de pagamento</strong>, analisar evolução mensal e monitorar status dos pedidos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="feature-card bg-white p-6 rounded-lg shadow-sm border-l-4 border-gray-300 hover:border-brand-orange transition-colors">
+                    <div class="flex items-start mb-3">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 mr-4 flex-shrink-0">
+                            <i class="fa-solid fa-check-circle"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-montserrat font-bold text-xl text-gray-800 mb-2">Entregável Final</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Aplicativo local com visualizações responsivas (Plotly) e navegação intuitiva para apoiar decisões.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="absolute bottom-0 left-0 w-full h-16 flex items-center justify-between px-16 border-t border-gray-200 bg-white/90 z-20">
+        <p class="font-montserrat text-xs font-bold text-gray-400 tracking-wider">DASHBOARD DE VENDAS OLIST</p>
+        <div class="flex items-center space-x-2">
+            <div class="h-1.5 w-1.5 rounded-full bg-brand-blue"></div>
+            <p class="font-montserrat text-xs font-bold text-brand-blue">SLIDE 02</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+﻿pandas>=1.5
+numpy>=1.24
+streamlit>=1.28
+plotly>=5.17
+matplotlib
+pydeck
+python-dotenv
+dash

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&amp;family=Open+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    body { margin: 0; padding: 0; background-color: #f3f4f6; font-family: 'Open Sans', sans-serif; }
+    .slide-container { width: 1280px; min-height: 720px; background-color: #ffffff; position: relative; display: flex; flex-direction: column; overflow: hidden; }
+    .bg-brand-blue { background-color: #212B5C; }
+    .text-brand-blue { color: #212B5C; }
+    .bg-brand-orange { background-color: #FDB913; }
+    .text-brand-orange { color: #FDB913; }
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .conclusion-card { transition: all 0.3s ease; border-top-width: 6px; }
+    .conclusion-card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+    .bg-pattern { background-image: radial-gradient(#e5e7eb 1px, transparent 1px); background-size: 24px 24px; opacity: 0.5; }
+    .checkmark-wrapper { position: relative; }
+    .checkmark-wrapper::before { content: ''; position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px; border-radius: 50%; border: 2px dashed #FDB913; animation: spin-slow 10s linear infinite; }
+    @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<div class="slide-container">
+    <!-- Header Section -->
+    <div class="w-full px-16 pt-12 pb-6 bg-white z-20 relative">
+        <div class="flex items-center mb-2">
+            <div class="h-1 w-12 bg-brand-orange mr-4"></div>
+            <p class="font-montserrat font-bold text-xs uppercase tracking-widest text-gray-400">Fundamentos de Big Data</p>
+        </div>
+        <h1 class="font-montserrat font-extrabold text-5xl text-brand-blue">Conclusão</h1>
+    </div>
+
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 bg-pattern z-0"></div>
+    <div class="absolute top-1/4 right-20 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-50 z-0"></div>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 px-16 py-8 relative z-10 flex flex-col justify-center items-center">
+        <div class="w-full max-w-4xl text-center mb-12">
+            <p class="font-montserrat text-2xl text-gray-700 leading-relaxed">
+                Entregamos uma ferramenta de <span class="font-bold text-brand-blue">visualização ágil</span> e <span class="font-bold text-brand-blue">interativa</span> para explorar os dados da Olist.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-3 gap-8 w-full max-w-6xl">
+            <div class="conclusion-card bg-white p-8 rounded-xl shadow-lg border-brand-blue flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-brand-blue text-2xl mb-6 checkmark-wrapper">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h3 class="font-montserrat font-bold text-xl text-gray-800 mb-3">Entrega de Valor</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    KPIs claros (faturamento, volume, qualidade) para leitura imediata.
+                </p>
+            </div>
+
+            <div class="conclusion-card bg-white p-8 rounded-xl shadow-lg border-brand-orange flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center text-brand-orange text-2xl mb-6">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <h3 class="font-montserrat font-bold text-xl text-gray-800 mb-3">Tecnologia Ágil</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    Stack <strong>Streamlit + Plotly + Pandas</strong> para prototipagem rápida e alta interatividade.
+                </p>
+            </div>
+
+            <div class="conclusion-card bg-white p-8 rounded-xl shadow-lg border-gray-400 flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 text-2xl mb-6">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                </div>
+                <h3 class="font-montserrat font-bold text-xl text-gray-800 mb-3">Documentação</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    Código organizado, requirements definidos e README explicativo garantindo reprodutibilidade.
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-16 flex items-center gap-4 bg-white px-8 py-3 rounded-full shadow-md border border-gray-100">
+            <div class="flex items-center gap-2">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                <span class="font-montserrat font-bold text-sm text-gray-700 uppercase tracking-wide">Status do Projeto:</span>
+            </div>
+            <span class="font-montserrat font-bold text-sm text-brand-blue">Pronto para Apresentação &amp; Discussão</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="absolute bottom-0 left-0 w-full h-16 flex items-center justify-between px-16 border-t border-gray-200 bg-white/90 z-20">
+        <p class="font-montserrat text-xs font-bold text-gray-400 tracking-wider">DASHBOARD DE VENDAS OLIST</p>
+        <div class="flex items-center space-x-2">
+            <div class="h-1.5 w-1.5 rounded-full bg-brand-blue"></div>
+            <p class="font-montserrat text-xs font-bold text-brand-blue">SLIDE 12</p>
+        </div>
+    </div>
+</div>
+</body>
+</html> 

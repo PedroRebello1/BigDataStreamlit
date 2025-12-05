@@ -1,0 +1,12 @@
+# Ambientes e caches
+.venv/
+__pycache__/
+*.pyc
+
+# Arquivos de SO/IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Dados brutos (CSV grandes)
+data_raw/

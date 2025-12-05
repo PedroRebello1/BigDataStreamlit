@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&amp;family=Open+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    body { margin: 0; padding: 0; background-color: #f3f4f6; font-family: 'Open Sans', sans-serif; }
+    .slide-container { width: 1280px; min-height: 720px; background-color: #ffffff; position: relative; display: flex; flex-direction: column; overflow: hidden; }
+    .bg-brand-blue { background-color: #212B5C; }
+    .text-brand-blue { color: #212B5C; }
+    .bg-brand-orange { background-color: #FDB913; }
+    .text-brand-orange { color: #FDB913; }
+    .border-brand-orange { border-color: #FDB913; }
+    .border-brand-blue { border-color: #212B5C; }
+    .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .kpi-card { transition: all 0.3s ease; position: relative; overflow: hidden; }
+    .kpi-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+    .kpi-icon-bg { position: absolute; right: -20px; bottom: -20px; font-size: 8rem; opacity: 0.05; transform: rotate(-15deg); }
+</style>
+</head>
+<body>
+<div class="slide-container">
+    <!-- Header Section -->
+    <div class="w-full px-16 pt-12 pb-6 bg-white z-20">
+        <div class="flex items-center mb-2">
+            <div class="h-1 w-12 bg-brand-orange mr-4"></div>
+            <p class="font-montserrat font-bold text-xs uppercase tracking-widest text-gray-400">Fundamentos de Big Data</p>
+        </div>
+        <h1 class="font-montserrat font-extrabold text-5xl text-brand-blue">Métricas Principais (Resumo)</h1>
+    </div>
+
+    <!-- Background Decoration -->
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-gray-50 z-0"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-orange opacity-5 rounded-full blur-3xl z-0 translate-y-1/4 -translate-x-1/4"></div>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 px-16 pt-8 pb-12 relative z-10 flex flex-col justify-center">
+        <p class="text-gray-600 text-lg mb-10 max-w-4xl font-light">
+            KPIs calculados a partir do <strong>dataset final</strong>, exibidos no topo do dashboard para leitura imediata.
+        </p>
+
+        <div class="grid grid-cols-3 gap-10 w-full">
+            <!-- KPI 1: Faturamento -->
+            <div class="kpi-card bg-white p-8 rounded-2xl shadow-lg border-t-8 border-green-500 flex flex-col justify-between h-64">
+                <i class="fa-solid fa-sack-dollar text-green-500 kpi-icon-bg"></i>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-14 h-14 rounded-xl bg-green-50 flex items-center justify-center text-green-600 text-2xl shadow-sm">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                    </div>
+                    <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Receita</span>
+                </div>
+                <div>
+                    <p class="font-montserrat font-semibold text-gray-500 text-sm uppercase tracking-wider mb-1">Faturamento Total</p>
+                    <h2 class="font-montserrat font-extrabold text-5xl text-gray-800 mb-2">R$ 16.008.872,12</h2>
+                    <p class="text-xs text-gray-400 italic">Somatório de payment_value_total</p>
+                </div>
+            </div>
+
+            <!-- KPI 2: Pedidos Únicos -->
+            <div class="kpi-card bg-white p-8 rounded-2xl shadow-lg border-t-8 border-brand-blue flex flex-col justify-between h-64">
+                <i class="fa-solid fa-box-open text-brand-blue kpi-icon-bg"></i>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center text-brand-blue text-2xl shadow-sm">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <span class="bg-blue-100 text-brand-blue text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Volume</span>
+                </div>
+                <div>
+                    <p class="font-montserrat font-semibold text-gray-500 text-sm uppercase tracking-wider mb-1">Pedidos Únicos</p>
+                    <h2 class="font-montserrat font-extrabold text-5xl text-gray-800 mb-2">99.441</h2>
+                    <p class="text-xs text-gray-400 italic">Contagem distinta de order_id</p>
+                </div>
+            </div>
+
+            <!-- KPI 3: Nota Média -->
+            <div class="kpi-card bg-white p-8 rounded-2xl shadow-lg border-t-8 border-brand-orange flex flex-col justify-between h-64">
+                <i class="fa-solid fa-star text-brand-orange kpi-icon-bg"></i>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-14 h-14 rounded-xl bg-yellow-50 flex items-center justify-center text-brand-orange text-2xl shadow-sm">
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <span class="bg-yellow-100 text-yellow-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Qualidade</span>
+                </div>
+                <div>
+                    <p class="font-montserrat font-semibold text-gray-500 text-sm uppercase tracking-wider mb-1">Nota Média (Reviews)</p>
+                    <div class="flex items-baseline gap-3">
+                        <h2 class="font-montserrat font-extrabold text-5xl text-gray-800 mb-2">4,07</h2>
+                        <span class="text-gray-400 text-xl font-medium">/ 5,0</span>
+                    </div>
+                    <p class="text-xs text-gray-400 italic">Média de review_score</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10 flex items-center justify-center">
+            <div class="bg-blue-50 rounded-full px-6 py-2 flex items-center space-x-3 text-brand-blue border border-blue-100">
+                <i class="fa-solid fa-circle-info"></i>
+                <p class="text-sm font-semibold">Valores reais calculados no dashboard.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="absolute bottom-0 left-0 w-full h-16 flex items-center justify-between px-16 border-t border-gray-200 bg-white/90 z-20">
+        <p class="font-montserrat text-xs font-bold text-gray-400 tracking-wider">DASHBOARD DE VENDAS OLIST</p>
+        <div class="flex items-center space-x-2">
+            <div class="h-1.5 w-1.5 rounded-full bg-brand-blue"></div>
+            <p class="font-montserrat text-xs font-bold text-brand-blue">SLIDE 06</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&amp;family=Open+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f3f4f6; 
+            font-family: 'Open Sans', sans-serif;
+        }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            display: flex;
+            overflow: hidden;
+        }
+        /* Olist Inspired Colors */
+        .bg-brand-blue { background-color: #212B5C; }
+        .text-brand-blue { color: #212B5C; }
+        .bg-brand-orange { background-color: #FDB913; }
+        .text-brand-orange { color: #FDB913; }
+        
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        
+        /* Decorative Elements */
+        .decorative-circle {
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+    <!-- Left Content Section -->
+    <div class="w-7/12 flex flex-col justify-center pl-24 pr-12 z-10 bg-white">
+        <!-- Header: Discipline -->
+        <div class="flex items-center mb-8">
+            <div class="h-1 w-16 bg-brand-orange mr-4"></div>
+            <p class="font-montserrat font-bold text-sm uppercase tracking-widest text-gray-500">
+                Fundamentos de Big Data
+            </p>
+        </div>
+        <!-- Main Title Block -->
+        <div class="mb-10">
+            <h1 class="font-montserrat font-extrabold text-6xl leading-tight text-brand-blue mb-4">
+                Dashboard de<br/>Vendas Olist
+            </h1>
+            <h2 class="font-montserrat font-light text-3xl text-gray-600">
+                Tema 5: Visualização e Exploração
+            </h2>
+        </div>
+        <!-- Divider -->
+        <div class="w-24 h-2 bg-gray-100 mb-12"></div>
+        <!-- Team Section -->
+        <div class="flex flex-col mb-12">
+            <p class="font-montserrat font-bold text-gray-400 text-xs uppercase tracking-wider mb-6">
+                Equipe do Projeto
+            </p>
+            <div class="grid grid-cols-2 gap-y-6 gap-x-4">
+                <!-- Team Member 1 -->
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mr-3 text-brand-blue shadow-sm">
+                        <i class="fa-solid fa-user text-sm"></i>
+                    </div>
+                    <p class="text-lg text-gray-700 font-medium">Pedro Rebello</p>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mr-3 text-brand-blue shadow-sm">
+                        <i class="fa-solid fa-user text-sm"></i>
+                    </div>
+                    <p class="text-lg text-gray-700 font-medium">Mariana Almeida</p>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mr-3 text-brand-blue shadow-sm">
+                        <i class="fa-solid fa-user text-sm"></i>
+                    </div>
+                    <p class="text-lg text-gray-700 font-medium">Gabriel Francisco</p>
+                </div>
+                <!-- Team Member 4 -->
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mr-3 text-brand-blue shadow-sm">
+                        <i class="fa-solid fa-user text-sm"></i>
+                    </div>
+                    <p class="text-lg text-gray-700 font-medium">Guilherme Mendes</p>
+                </div>
+            </div>
+        </div>
+        <!-- Date Footer -->
+        <div class="flex items-center text-gray-400 font-medium text-sm border-t border-gray-100 pt-6 w-full">
+            <i class="fa-regular fa-calendar mr-2 text-brand-orange"></i>
+            <p>05 de Dezembro de 2025</p>
+        </div>
+    </div>
+    <!-- Right Visual Section -->
+    <div class="w-5/12 h-full bg-brand-blue relative flex items-center justify-center overflow-hidden">
+        <!-- Background Patterns -->
+        <svg class="absolute opacity-5" height="100%" width="100%">
+            <pattern height="20" id="dots" patternUnits="userSpaceOnUse" width="20" x="0" y="0">
+                <circle cx="2" cy="2" fill="white" r="1.5"></circle>
+            </pattern>
+            <rect fill="url(#dots)" height="100%" width="100%"></rect>
+        </svg>
+        <!-- Decorative Circle -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-white opacity-5 rounded-full"></div>
+        <div class="absolute bottom-20 -left-20 w-64 h-64 bg-brand-orange opacity-20 rounded-full blur-3xl"></div>
+        <!-- Dashboard Abstract Visualization -->
+        <div class="relative z-10 transform scale-110">
+            <!-- Card 1: Bar Chart -->
+            <div class="bg-white p-6 rounded-xl shadow-2xl transform -rotate-6 w-72 mb-[-40px] ml-[-20px] z-10 relative border-b-4 border-r-4 border-gray-200">
+                <div class="flex justify-between items-end h-32 gap-3 px-2">
+                    <div class="w-full bg-brand-blue opacity-20 h-16 rounded-t"></div>
+                    <div class="w-full bg-brand-blue opacity-40 h-20 rounded-t"></div>
+                    <div class="w-full bg-brand-orange h-28 rounded-t shadow-md"></div>
+                    <div class="w-full bg-brand-blue opacity-40 h-24 rounded-t"></div>
+                </div>
+                <div class="mt-4 space-y-2">
+                    <div class="h-2 w-full bg-gray-100 rounded-full"></div>
+                    <div class="h-2 w-2/3 bg-gray-100 rounded-full"></div>
+                </div>
+            </div>
+            <!-- Card 2: Donut Chart -->
+            <div class="bg-white p-6 rounded-xl shadow-2xl transform rotate-12 w-64 absolute -bottom-8 -right-12 z-20 border-l-4 border-b-4 border-gray-200">
+                <div class="flex items-center justify-center h-32">
+                    <div class="relative w-24 h-24">
+                        <svg class="w-full h-full" viewBox="0 0 36 36">
+                            <path class="text-gray-100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4"></path>
+                            <path class="text-brand-blue" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="75, 100" stroke-width="4"></path>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fa-solid fa-chart-pie text-brand-orange text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2 flex justify-center">
+                    <div class="h-2 w-16 bg-gray-200 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

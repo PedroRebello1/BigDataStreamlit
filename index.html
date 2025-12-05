@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Slides – Dashboard Olist</title>
+<style>
+  body { margin: 0; font-family: sans-serif; background: #0b172a; color: #f8fafc; }
+  .topbar {
+    display: flex; align-items: center; justify-content: center;
+    gap: 12px; padding: 12px; background: #111827; border-bottom: 1px solid #1f2937;
+    position: sticky; top: 0; z-index: 10;
+  }
+  button {
+    padding: 10px 18px; border: none; border-radius: 8px;
+    background: #2563eb; color: #fff; font-weight: 700; cursor: pointer;
+    box-shadow: 0 6px 16px rgba(37,99,235,0.35);
+  }
+  button:disabled { opacity: 0.4; cursor: not-allowed; box-shadow: none; }
+  iframe { width: 100%; height: calc(100vh - 70px); border: none; background: #fff; }
+  .status { font-size: 14px; color: #cbd5e1; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <button id="prevBtn">⟵ Anterior</button>
+  <button id="nextBtn">Próximo ⟶</button>
+  <span class="status" id="status"></span>
+</div>
+
+<iframe id="viewer" src="/Slides/slide1.html" title="Slides"></iframe>
+
+<script>
+  const slides = Array.from({ length: 14 }, (_, i) => `/Slides/slide${i+1}.html`);
+  let current = 0;
+
+  const iframe = document.getElementById('viewer');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const status = document.getElementById('status');
+
+  function update() {
+    iframe.src = slides[current];
+    status.textContent = `Slide ${current + 1} de ${slides.length}`;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === slides.length - 1;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if (current > 0) { current--; update(); }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (current < slides.length - 1) { current++; update(); }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+      if (current < slides.length - 1) { current++; update(); }
+    }
+    if (e.key === 'ArrowLeft') {
+      if (current > 0) { current--; update(); }
+    }
+  });
+
+  // clique em qualquer lugar com botão esquerdo avança (opcional)
+  document.addEventListener('click', (e) => {
+    // evita cliques nos botões de navegação resetarem o estado incorretamente
+    if (e.target.tagName === 'BUTTON') return;
+    if (current < slides.length - 1) { current++; update(); }
+  });
+
+  update();
+</script>
+</body>
+</html>
